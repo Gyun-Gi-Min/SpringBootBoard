@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.koreait.springbootboard.board.BoardMapper">
+
+        <!--삭제 x 지정 카테고리 글 , 최신글 위에, 글쓴이 이름
+            제외 icategory ctnt mdt lastip
+        -->
+    <select id="selBoardList" resultType="BoardVo">
+        select A.iboard, A.title , A.iuser , A.hits , A.rdt,
+        B.nm as username
+        from t_board A
+        left join t_user B
+        ON A.iuser = B.iuser
+        where isdel = 0
+        and A.icategory = #{icategory}
+        Order by A.iboard desc
+    </select>
+
+
+    <select id="selBoard" resultType="BoardVo">
+        select A.iboard, A.icategory, A.title , A.ctnt , A.iuser , A.hits , A.rdt,
+        B.nm as username
+        from t_board A
+        left join t_user B
+        ON A.iuser = B.iuser
+        where isdel = 0
+        and A.iboard = #{iboard}
+    </select>
+
+
+
+
+</mapper>
