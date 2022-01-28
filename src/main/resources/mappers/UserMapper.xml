@@ -3,4 +3,29 @@
 <mapper namespace="com.koreait.springbootboard.user.UserMapper">
 
 
+    <insert id="insUser">
+        insert into t_user
+        (uid, upw, nm, gender)
+        values
+        (#{uid},#{upw},#{nm},#{gender})
+    </insert>
+
+
+
+    <select id="selUser" resultType="UserEntity">
+    SELECT * FROM t_user
+    <where>
+        <if test=" uid != null and uid !='' ">
+            uid = #{uid}
+        </if>
+        <if test=" iuser > 0">
+            and iuser = ${iuser}
+        </if>
+    </where>
+    </select>
+
+
+
+
+
 </mapper>
