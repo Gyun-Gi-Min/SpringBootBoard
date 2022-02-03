@@ -1,6 +1,7 @@
 package com.koreait.springbootboard.board;
 
 
+import com.koreait.springbootboard.ResultVo;
 import com.koreait.springbootboard.board.model.BoardDTO;
 import com.koreait.springbootboard.board.model.BoardVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class BoardRestController {
     public BoardVo selBoard(@PathVariable int iboard, BoardDTO dto) {
         dto.setIboard(iboard);
         return service.selBoard(dto);
+    }
+
+    @GetMapping("/maxpage")
+    public ResultVo selMaxPageVal(BoardDTO dto){
+        return service.selMaxPageVal(dto);
     }
 
 }

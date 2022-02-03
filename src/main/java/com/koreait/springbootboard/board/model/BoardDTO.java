@@ -6,6 +6,12 @@ import lombok.Data;
 public class BoardDTO {
     private int icategory;
     private int iboard;
+    private int recordCount;
+    private int currentPage;
+    private int startIdx;
+
+
+
 
 
 }

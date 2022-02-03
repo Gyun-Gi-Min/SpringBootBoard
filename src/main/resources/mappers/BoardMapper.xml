@@ -14,6 +14,7 @@
         where isdel = 0
         and A.icategory = #{icategory}
         Order by A.iboard desc
+        LIMIT ${startIdx}, ${recordCount}
     </select>
 
 
@@ -26,6 +27,17 @@
         where isdel = 0
         and A.iboard = #{iboard}
     </select>
+
+
+    <select id="selMaxPageVal" resultType="ResultVo">
+        SELECT CEIL(COUNT(iboard) / ${recordCount}) as result
+        from t_board
+        WHERE isdel = 0
+        AND icategory = ${icategory}
+
+
+    </select>
+
 
 
 

@@ -14,12 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/board")
 public class BoardController {
 
-
     @GetMapping("/list")
     public void list(){}
-
-
-
-
 
 }
