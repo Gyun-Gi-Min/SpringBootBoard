@@ -16,7 +16,7 @@ public class UserService{
     public int join(UserEntity entity){
        //유효성 검사
         
-        
+
         String hashedUpw = BCrypt.hashpw(entity.getUpw(),BCrypt.gensalt());
         entity.setUpw(hashedUpw);
         try {
@@ -28,17 +28,6 @@ public class UserService{
 
 
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     //0>DB에러 1>로그인 성공 2> 아이디x 3 비번다름
     public int login(UserEntity entity){
         UserEntity dbUser = null;
